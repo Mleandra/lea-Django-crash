@@ -4,7 +4,8 @@ from . import views
 
 app_name='store'
 urlpatterns=[
-   url(r'^$',views.index ,name='accueil'),
+   url(r'^$',views.index, name='index'),
+   url(r'^liste/$',views.listage, name='listage'),
    url(r'^(?P<manga_id>[0-9]+)/$', views.detail, name='detail'),
-  # url(r'^search/$', views.search, name='search'),
+   url(r'^recherche/$', views.recherche, name='recherche'),
 ]
