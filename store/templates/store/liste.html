@@ -1,0 +1,18 @@
+voici la liste de lea<br>
+
+{% for manga in mangas %}
+    <div class="col-sm-4 text-center">
+        <a href="{% url 'store:detail' manga_id=manga.id %}">
+            <img class="img-responsive" src="{{ manga.mignature }} " alt="{{ manga.nom }}">
+
+        </a>
+        <h3><a href="{% url 'store:detail' manga_id=manga.id %}">{{ manga.nom }}</a>
+            {% for mangaka in manga.mangakas.all %}
+                <p>{{ mangaka.nom }}</p>
+            {% endfor %}
+
+        </h3>
+
+    </div>
+{% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
+{% endfor %}
